@@ -3,8 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saif Alam · Security Researcher</title>
-  <meta name="description" content="Saif Alam — Offensive Security Researcher specializing in web, API, cloud, and Active Directory security." />
+  <title>Saif Alam · Penetration Tester &amp; Offensive Security Analyst</title>
+  <meta name="description" content="Saif Alam — Penetration Tester &amp; Offensive Security Analyst in Bengaluru. Web, API, cloud (Azure/Entra ID), Active Directory, and LLM/AI security. 100+ validated vulnerabilities across 18+ monthly assessments." />
+  <meta name="author" content="Saif Alam" />
+
+  <!-- Social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Saif Alam · Penetration Tester &amp; Offensive Security Analyst" />
+  <meta property="og:description" content="Web, API, cloud, and Active Directory security. 100+ validated vulnerabilities across 18+ monthly assessments at Casepoint." />
+  <meta property="og:url" content="https://c1ph3rs3c.github.io" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Saif Alam · Penetration Tester &amp; Offensive Security Analyst" />
+  <meta name="twitter:description" content="Web, API, cloud, and Active Directory security. 100+ validated vulnerabilities across 18+ monthly assessments." />
+
+  <!-- Terminal-prompt favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%230a0c0f'/%3E%3Ctext%20x='16'%20y='23'%20font-family='monospace'%20font-size='18'%20fill='%2300d4aa'%20text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,22 +44,12 @@
             bright:  '#e6edf3',
           },
           animation: {
-            'fade-up':   'fadeUp 0.6s ease forwards',
-            'blink':     'blink 1s step-end infinite',
-            'glow-pulse':'glowPulse 3s ease-in-out infinite',
+            'blink': 'blink 1.1s step-end infinite',
           },
           keyframes: {
-            fadeUp: {
-              '0%':   { opacity: '0', transform: 'translateY(24px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
             blink: {
               '0%,100%': { opacity: '1' },
               '50%':     { opacity: '0' },
-            },
-            glowPulse: {
-              '0%,100%': { boxShadow: '0 0 20px rgba(0,212,170,0.1)' },
-              '50%':     { boxShadow: '0 0 40px rgba(0,212,170,0.25)' },
             },
           },
         },
@@ -63,45 +67,19 @@
     ::-webkit-scrollbar-track { background: #0a0c0f; }
     ::-webkit-scrollbar-thumb { background: #00d4aa44; border-radius: 4px; }
 
-    /* Grid bg */
+    /* Subtle grid + one soft radial glow — enough atmosphere, no gimmicks */
     .grid-bg {
       background-image:
-        linear-gradient(rgba(0,212,170,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,170,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
+        radial-gradient( circle at 15% 0%, rgba(0,212,170,0.06), transparent 40%),
+        linear-gradient(rgba(0,212,170,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,170,0.025) 1px, transparent 1px);
+      background-size: 100% 100%, 42px 42px, 42px 42px;
     }
 
-    /* Glitch effect on hero name */
-    .glitch {
-      position: relative;
-    }
-    .glitch::before, .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-    }
-    .glitch::before {
-      color: #00d4aa;
-      animation: glitch1 4s infinite;
-      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-    }
-    .glitch::after {
-      color: #0090ff;
-      animation: glitch2 4s infinite;
-      clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-    }
-    @keyframes glitch1 {
-      0%,90%,100% { transform: translate(0); opacity: 0; }
-      92% { transform: translate(-2px, 1px); opacity: 0.6; }
-      94% { transform: translate(2px, -1px); opacity: 0.6; }
-      96% { transform: translate(0); opacity: 0; }
-    }
-    @keyframes glitch2 {
-      0%,90%,100% { transform: translate(0); opacity: 0; }
-      93% { transform: translate(2px, 2px); opacity: 0.6; }
-      95% { transform: translate(-2px, -1px); opacity: 0.6; }
-      97% { transform: translate(0); opacity: 0; }
+    /* Accent underline under the name — a calm signature, not a glitch */
+    .name-underline {
+      background: linear-gradient(90deg, #00d4aa, #0090ff);
+      height: 3px; width: 84px; border-radius: 2px;
     }
 
     /* Skill tag hover */
@@ -126,10 +104,7 @@
     }
 
     /* Nav active indicator */
-    .nav-link {
-      position: relative;
-      transition: color 0.2s;
-    }
+    .nav-link { position: relative; transition: color 0.2s; }
     .nav-link::after {
       content: '';
       position: absolute;
@@ -142,14 +117,10 @@
     .nav-link:hover { color: #00d4aa; }
 
     /* Timeline line */
-    .timeline-line {
-      background: linear-gradient(to bottom, #00d4aa, transparent);
-    }
+    .timeline-line { background: linear-gradient(to bottom, #00d4aa, transparent); }
 
     /* Cert badge pulse dot */
-    .cert-dot {
-      animation: certDotPulse 2s ease-in-out infinite;
-    }
+    .cert-dot { animation: certDotPulse 2s ease-in-out infinite; }
     @keyframes certDotPulse {
       0%,100% { box-shadow: 0 0 0 0 rgba(0,212,170,0.4); }
       50%      { box-shadow: 0 0 0 6px rgba(0,212,170,0); }
@@ -161,7 +132,7 @@
 
     /* Mobile menu */
     #mobile-menu { transition: max-height 0.3s ease, opacity 0.3s ease; max-height: 0; opacity: 0; overflow: hidden; }
-    #mobile-menu.open { max-height: 400px; opacity: 1; }
+    #mobile-menu.open { max-height: 420px; opacity: 1; }
   </style>
 </head>
 
@@ -176,13 +147,14 @@
       <span class="text-accent">saif</span>alam<span class="text-accent animate-blink">_</span>
     </a>
     <!-- Desktop nav -->
-    <div class="hidden md:flex items-center gap-8 text-sm font-mono text-muted">
-      <a href="#about"   class="nav-link">about</a>
-      <a href="#skills"  class="nav-link">skills</a>
+    <div class="hidden md:flex items-center gap-7 text-sm font-mono text-muted">
+      <a href="#about"      class="nav-link">about</a>
+      <a href="#skills"     class="nav-link">skills</a>
       <a href="#experience" class="nav-link">experience</a>
-      <a href="#certs"   class="nav-link">certs</a>
-      <a href="#contact" class="nav-link">contact</a>
-      <a href="https://github.com/C1ph3rs3c" target="_blank" class="ml-2 px-4 py-1.5 border border-accent text-accent text-xs hover:bg-accent hover:text-bg transition-all duration-200 rounded-sm">
+      <a href="#work"       class="nav-link">work</a>
+      <a href="#certs"      class="nav-link">certs</a>
+      <a href="#contact"    class="nav-link">contact</a>
+      <a href="https://github.com/C1ph3rs3c" target="_blank" rel="noopener" class="ml-1 px-4 py-1.5 border border-accent text-accent text-xs hover:bg-accent hover:text-bg transition-all duration-200 rounded-sm">
         GitHub ↗
       </a>
     </div>
@@ -199,6 +171,7 @@
       <a href="#about"      class="hover:text-accent transition-colors mobile-nav">about</a>
       <a href="#skills"     class="hover:text-accent transition-colors mobile-nav">skills</a>
       <a href="#experience" class="hover:text-accent transition-colors mobile-nav">experience</a>
+      <a href="#work"       class="hover:text-accent transition-colors mobile-nav">work</a>
       <a href="#certs"      class="hover:text-accent transition-colors mobile-nav">certs</a>
       <a href="#contact"    class="hover:text-accent transition-colors mobile-nav">contact</a>
     </div>
@@ -208,50 +181,85 @@
 <!-- ══════════════════════════════════════════
      HERO
 ══════════════════════════════════════════ -->
-<section id="home" class="pt-28 pb-20">
+<section id="home" class="pt-32 pb-16">
   <div class="max-w-6xl mx-auto px-6">
     <div class="max-w-3xl">
-      <!-- Terminal prefix -->
-      <p class="font-mono text-accent text-sm mb-4 opacity-80">
+      <!-- Terminal prefix (the one terminal touch we keep) -->
+      <p class="font-mono text-accent text-sm mb-5 opacity-80">
         <span class="text-muted">~/research</span> <span class="text-accent2">$</span> whoami
       </p>
 
       <!-- Name -->
-      <h1 class="font-display font-800 text-5xl sm:text-6xl md:text-7xl text-bright leading-none mb-2 tracking-tight">
-        <span class="glitch" data-text="Saif Alam">Saif Alam</span>
+      <h1 class="font-display font-800 text-5xl sm:text-6xl md:text-7xl text-bright leading-none mb-4 tracking-tight">
+        Saif Alam
       </h1>
+      <div class="name-underline mb-6"></div>
 
       <!-- Role -->
-      <div class="font-mono text-lg sm:text-xl text-muted mb-3 mt-4">
-        <span id="typed-role" class="text-accent"></span><span class="animate-blink text-accent">|</span>
-      </div>
+      <p class="font-mono text-lg sm:text-xl text-bright/90 mb-3">
+        Penetration Tester &amp; Offensive Security Analyst<span class="animate-blink text-accent">_</span>
+      </p>
+
+      <!-- Location / experience line -->
+      <p class="font-mono text-sm text-muted mb-7">
+        Bengaluru, India · 2+ years breaking (and helping fix) production systems
+      </p>
+
       <!-- Specialization pills -->
       <div class="flex flex-wrap gap-2 mb-8">
         <span class="px-3 py-1 text-xs font-mono border border-border text-muted bg-surface rounded-sm">AppSec</span>
-        <span class="px-3 py-1 text-xs font-mono border border-border text-muted bg-surface rounded-sm">AI Security</span>
+        <span class="px-3 py-1 text-xs font-mono border border-border text-muted bg-surface rounded-sm">AI / LLM Security</span>
         <span class="px-3 py-1 text-xs font-mono border border-border text-muted bg-surface rounded-sm">Red Team</span>
         <span class="px-3 py-1 text-xs font-mono border border-border text-muted bg-surface rounded-sm">Cloud Pentesting</span>
         <span class="px-3 py-1 text-xs font-mono border border-border text-muted bg-surface rounded-sm">Active Directory</span>
+        <span class="px-3 py-1 text-xs font-mono border border-border text-muted bg-surface rounded-sm">DevSecOps</span>
       </div>
 
       <!-- Tagline -->
-      <p class="font-mono text-text text-sm sm:text-base max-w-xl leading-relaxed mb-10 opacity-80">
-        Breaking things before the bad actors do — finding vulnerabilities across web, API, cloud, and enterprise Active Directory environments.
+      <p class="font-mono text-text text-sm sm:text-base max-w-xl leading-relaxed mb-10 opacity-85">
+        I hunt for the ways enterprise web, API, cloud, and Active Directory environments
+        actually break — validate them, prove the impact, then work with the teams that own
+        the code until the fix actually lands.
       </p>
 
       <!-- CTA row -->
-      <div class="flex flex-wrap gap-4 mb-16">
-        <a href="#experience" class="px-6 py-2.5 bg-accent text-bg text-sm font-mono font-600 hover:bg-accent/80 transition-colors">
+      <div class="flex flex-wrap gap-4">
+        <a href="#work" class="px-6 py-2.5 bg-accent text-bg text-sm font-mono font-600 hover:bg-accent/80 transition-colors">
           view work
         </a>
         <a href="#contact" class="px-6 py-2.5 border border-border text-text text-sm font-mono hover:border-accent hover:text-accent transition-all">
           get in touch
         </a>
-        <a href="https://www.linkedin.com/in/saif-alam-594615239/" target="_blank" class="px-6 py-2.5 border border-border text-muted text-sm font-mono hover:border-accent2 hover:text-accent2 transition-all">
+        <a href="https://www.linkedin.com/in/saif-alam-594615239/" target="_blank" rel="noopener" class="px-6 py-2.5 border border-border text-muted text-sm font-mono hover:border-accent2 hover:text-accent2 transition-all">
           LinkedIn ↗
         </a>
       </div>
+    </div>
+  </div>
+</section>
 
+<!-- ══════════════════════════════════════════
+     STATS STRIP — specific numbers = credibility
+══════════════════════════════════════════ -->
+<section class="border-t border-border">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 divide-y divide-border md:divide-y-0 md:divide-x md:divide-border">
+      <div class="py-8 md:py-10 md:pr-8">
+        <p class="font-display font-800 text-bright text-3xl sm:text-4xl">2+</p>
+        <p class="font-mono text-xs text-muted mt-1">years in offensive security</p>
+      </div>
+      <div class="py-8 md:py-10 md:px-8">
+        <p class="font-display font-800 text-bright text-3xl sm:text-4xl">100<span class="text-accent">+</span></p>
+        <p class="font-mono text-xs text-muted mt-1">vulnerabilities validated (CVSS 6.0+)</p>
+      </div>
+      <div class="py-8 md:py-10 md:px-8">
+        <p class="font-display font-800 text-bright text-3xl sm:text-4xl">18<span class="text-accent">+</span></p>
+        <p class="font-mono text-xs text-muted mt-1">consecutive monthly assessments</p>
+      </div>
+      <div class="py-8 md:py-10 md:pl-8">
+        <p class="font-display font-800 text-bright text-3xl sm:text-4xl">8</p>
+        <p class="font-mono text-xs text-muted mt-1">client pentests delivered</p>
+      </div>
     </div>
   </div>
 </section>
@@ -270,16 +278,28 @@
         </h2>
         <div class="space-y-4 text-text text-sm leading-relaxed font-mono">
           <p>
-            I'm a security researcher focused on offensive security — finding and validating vulnerabilities in the systems and architectures that organizations rely on most. My work spans web applications, APIs, cloud environments (Azure, AWS, GCP), and Active Directory.
+            I'm an offensive security analyst based in Bengaluru. Day to day I run penetration
+            tests against the systems organizations rely on most — web apps, APIs, cloud
+            (Azure / Entra ID, AWS, GCP), Active Directory, and increasingly the LLM-powered
+            features getting bolted onto all of them.
           </p>
           <p>
-            My approach is research-driven and iterative. I spend time understanding how systems are built before looking for where they break. I document findings carefully and collaborate with development teams to make remediation actually land.
+            At Casepoint I run monthly, iteration-based assessments in IL4–6 environments —
+            over 18 consecutive months I've validated 100+ vulnerabilities and driven 80%+ of
+            them to a fix within two sprints. I like the part after the finding as much as the
+            finding itself: reproducing it cleanly, scoring real impact, and getting a
+            developer to actually close it.
           </p>
           <p>
-            Beyond the technical side, I'm interested in how adversaries think — which is why I incorporate red team tactics, threat emulation, and MITRE ATT&CK into assessments. I also manage vulnerability disclosure programs and enjoy the security community through CTFs and continuous learning.
+            Lately a lot of my time goes into AI security — testing chatbots and RAG features
+            for prompt injection and access-control bugs, and building my own tooling on top of
+            Claude (wired into Burp over MCP) to cut validation time. When I step to the other
+            side, I fold red-team tradecraft and MITRE ATT&amp;CK into engagements to pressure-test
+            detection, not just find bugs.
           </p>
           <p>
-            When I'm not testing, I'm writing tooling in Python and PowerShell, studying new attack paths, or working toward the next cert.
+            Outside of testing I'm usually writing Python/PowerShell tooling, publishing
+            internal security notes, or chipping away at the next cert.
           </p>
         </div>
       </div>
@@ -299,14 +319,15 @@
             <p class="text-muted">{</p>
             <div class="pl-4 space-y-1">
               <p><span class="text-accent2">"name"</span><span class="text-muted">:</span> <span class="text-accent">"Saif Alam"</span><span class="text-muted">,</span></p>
-              <p><span class="text-accent2">"location"</span><span class="text-muted">:</span> <span class="text-accent">"India"</span><span class="text-muted">,</span></p>
-              <p><span class="text-accent2">"role"</span><span class="text-muted">:</span> <span class="text-accent">"Security Researcher"</span><span class="text-muted">,</span></p>
+              <p><span class="text-accent2">"location"</span><span class="text-muted">:</span> <span class="text-accent">"Bengaluru, India"</span><span class="text-muted">,</span></p>
+              <p><span class="text-accent2">"role"</span><span class="text-muted">:</span> <span class="text-accent">"Penetration Tester / Offensive Security Analyst"</span><span class="text-muted">,</span></p>
+              <p><span class="text-accent2">"experience"</span><span class="text-muted">:</span> <span class="text-accent">"2+ years"</span><span class="text-muted">,</span></p>
               <p class="mt-2"><span class="text-accent2">"focus"</span><span class="text-muted">:</span> <span class="text-muted">[</span></p>
               <div class="pl-4">
                 <p><span class="text-text">"Offensive Security"</span><span class="text-muted">,</span></p>
-                <p><span class="text-text">"Cloud Pentesting"</span><span class="text-muted">,</span></p>
-                <p><span class="text-text">"Active Directory Attacks"</span><span class="text-muted">,</span></p>
-                <p><span class="text-text">"Red Team Operations"</span></p>
+                <p><span class="text-text">"Cloud &amp; Active Directory"</span><span class="text-muted">,</span></p>
+                <p><span class="text-text">"AI / LLM Security"</span><span class="text-muted">,</span></p>
+                <p><span class="text-text">"Red Team &amp; DevSecOps"</span></p>
               </div>
               <p><span class="text-muted">],</span></p>
               <p class="mt-2"><span class="text-accent2">"contact"</span><span class="text-muted">:</span> <span class="text-accent">"saifalam8757@gmail.com"</span><span class="text-muted">,</span></p>
@@ -333,7 +354,7 @@
       <div class="flex items-center gap-3 mb-5">
         <span class="text-accent text-xl">⬡</span>
         <h3 class="font-display font-600 text-bright text-sm">Penetration Testing</h3>
-        <span class="ml-auto font-mono text-xs text-muted/60">Web · API · Mobile · AI Security · Cloud · Network</span>
+        <span class="ml-auto font-mono text-xs text-muted/60">Web · API · Mobile · AI · Cloud · Network · Thick Client</span>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-5">
 
@@ -354,7 +375,6 @@
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Path Traversal</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">File Upload</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">SSTI</span>
-            <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Clickjacking</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Access Control</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Deserialization</span>
           </div>
@@ -373,21 +393,21 @@
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Mass Assignment</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Rate Limiting</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Improper Assets</span>
-            <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Injection via API</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Introspection Abuse</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">OWASP API Top 10</span>
           </div>
         </div>
 
-        <!-- Other vectors -->
+        <!-- AI / LLM + other vectors -->
         <div>
-          <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Other Vectors</p>
+          <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— AI / LLM &amp; Other</p>
           <div class="flex flex-wrap gap-1.5">
-            <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Mobile (Android/iOS)</span>
-            <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">AI / LLM Security</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Prompt Injection</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Model Jailbreak</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">RAG Poisoning</span>
+            <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">LLM Access Control</span>
+            <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Mobile (Android/iOS)</span>
+            <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Thick Client</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Network / Infra</span>
             <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">SaaS Assessment</span>
           </div>
@@ -396,10 +416,10 @@
       </div>
     </div>
 
-    <!-- ── Row 2: three side-by-side ── -->
+    <!-- ── Row 2: Red Team & AD  |  Cloud ── -->
     <div class="grid lg:grid-cols-2 gap-6 mb-6">
 
-      <!-- Red Team & AD — subdivided -->
+      <!-- Red Team & AD -->
       <div class="bg-card border border-border p-6 card-lift reveal">
         <div class="flex items-center gap-3 mb-5">
           <span class="text-accent text-xl">⬡</span>
@@ -436,7 +456,7 @@
         </div>
       </div>
 
-      <!-- Cloud Security — subdivided -->
+      <!-- Cloud Security -->
       <div class="bg-card border border-border p-6 card-lift reveal">
         <div class="flex items-center gap-3 mb-5">
           <span class="text-accent text-xl">⬡</span>
@@ -478,7 +498,7 @@
 
     </div>
 
-    <!-- ── Row 3: Tools + Threat Intel + Dev & Compliance ── -->
+    <!-- ── Row 3: Tools + DevSecOps + Threat Intel ── -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- Tools -->
@@ -491,12 +511,11 @@
           <div>
             <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Web / Mobile</p>
             <div class="flex flex-wrap gap-1.5">
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Burp Suite</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Burp Suite Pro</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">OWASP ZAP</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">SQLMap</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">MobSF</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Frida</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Nikto</span>
             </div>
           </div>
           <div>
@@ -504,6 +523,7 @@
             <div class="flex flex-wrap gap-1.5">
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Nmap</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Nessus</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Qualys</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Metasploit</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Wireshark</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Responder</span>
@@ -517,8 +537,6 @@
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Impacket</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">NetExec</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">CrackMapExec</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">PsExec</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Rubeus</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Mythic C2</span>
             </div>
           </div>
@@ -529,7 +547,6 @@
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">MicroBurst</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">ScoutSuite</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Pacu</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">CloudBrute</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Azure CLI</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">AWS CLI</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">gcloud</span>
@@ -538,52 +555,26 @@
         </div>
       </div>
 
-      <!-- Threat Intelligence & Monitoring -->
+      <!-- DevSecOps & Compliance -->
       <div class="bg-card border border-border p-6 card-lift reveal">
         <div class="flex items-center gap-3 mb-4">
           <span class="text-accent text-xl">⬡</span>
-          <h3 class="font-display font-600 text-bright text-sm">Threat Intel &amp; Monitoring</h3>
+          <h3 class="font-display font-600 text-bright text-sm">DevSecOps &amp; Compliance</h3>
         </div>
         <div class="space-y-3">
           <div>
-            <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Intelligence Platforms</p>
+            <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Pipeline Security</p>
             <div class="flex flex-wrap gap-1.5">
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Resecurity</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Dark Web Monitoring</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Breach Monitoring</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Botnet Tracking</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">OSINT</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">TruffleHog</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Gitleaks</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Trivy</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">SonarQube (SAST)</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">DAST</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Secret Scanning</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Image Scanning</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">CI/CD Security</span>
             </div>
           </div>
-          <div>
-            <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— SIEM &amp; Detection</p>
-            <div class="flex flex-wrap gap-1.5">
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Graylog</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Cortex XDR</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Log Analysis</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Detection Engineering</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Alert Triage</span>
-            </div>
-          </div>
-          <div>
-            <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— SIA &amp; Reporting</p>
-            <div class="flex flex-wrap gap-1.5">
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Security Impact Assessment</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">VDP Management</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">CVE / CVSS Scoring</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Threat Reporting</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Dev & Compliance -->
-      <div class="bg-card border border-border p-6 card-lift reveal">
-        <div class="flex items-center gap-3 mb-4">
-          <span class="text-accent text-xl">⬡</span>
-          <h3 class="font-display font-600 text-bright text-sm">Dev &amp; Compliance</h3>
-        </div>
-        <div class="space-y-3">
           <div>
             <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Scripting</p>
             <div class="flex flex-wrap gap-1.5">
@@ -593,22 +584,57 @@
             </div>
           </div>
           <div>
-            <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Frameworks</p>
+            <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Frameworks &amp; Compliance</p>
             <div class="flex flex-wrap gap-1.5">
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">OWASP Top 10</span>
               <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">MITRE ATT&CK</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">SAST / DAST</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Secure Code Review</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">FedRAMP HIGH</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">NIST 800-53</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">ISO 27001</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">SOC 2</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">DoD IL4–6</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Zero Trust</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Threat Intel + Protocols -->
+      <div class="bg-card border border-border p-6 card-lift reveal">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="text-accent text-xl">⬡</span>
+          <h3 class="font-display font-600 text-bright text-sm">Threat Intel &amp; Protocols</h3>
+        </div>
+        <div class="space-y-3">
+          <div>
+            <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Intel &amp; Monitoring</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Dark Web Monitoring</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Breach Monitoring</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">OSINT</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Graylog (SIEM)</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Cortex XDR</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Detection Engineering</span>
             </div>
           </div>
           <div>
-            <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Compliance</p>
+            <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Protocols</p>
             <div class="flex flex-wrap gap-1.5">
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">FedRAMP HIGH</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">NIST 800-53</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">ISO/IEC 27001</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">DoD IL4–6</span>
-              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">SOC 3</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">OAuth 2.0</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">JWT</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">SAML</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">OIDC</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Kerberos</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">NTLM</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">LDAP</span>
+            </div>
+          </div>
+          <div>
+            <p class="font-mono text-xs text-accent/70 mb-2 tracking-wider">— Reporting</p>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">CVE / CVSS Scoring</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">VDP Management</span>
+              <span class="skill-tag px-2 py-0.5 text-xs text-muted rounded-sm">Secure Code Review</span>
             </div>
           </div>
         </div>
@@ -634,28 +660,30 @@
       <div class="relative reveal">
         <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-accent border-2 border-bg cert-dot"></div>
         <div class="bg-card border border-border p-6 sm:p-8 card-lift mb-6 ml-4">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
             <div>
-              <h3 class="font-display font-700 text-bright text-lg">Security Administrator</h3>
+              <h3 class="font-display font-700 text-bright text-lg">Security Administrator / Penetration Tester</h3>
               <p class="font-mono text-accent text-sm mt-0.5">Casepoint</p>
             </div>
             <span class="font-mono text-xs text-muted bg-surface border border-border px-3 py-1 self-start whitespace-nowrap">Jan 2025 – Present</span>
           </div>
+          <p class="font-mono text-xs text-muted/70 italic mb-4">Enterprise legal-technology platform serving Fortune 500 clients in IL4–6 environments.</p>
           <ul class="space-y-2.5 font-mono text-xs text-text leading-relaxed">
-            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Led continuous iteration-based pentests across large-scale enterprise platforms (web, API, LLM) in IL4–6 environments, significantly reducing overall attack surface.</li>
-            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Conducted 6+ network and Active Directory penetration tests, identifying misconfigurations and lateral movement paths across complex infrastructures.</li>
-            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Led red team engagements simulating APT adversaries to validate detection gaps and strengthen blue team response readiness.</li>
-            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Ran phishing simulation campaigns and improved incident response playbooks based on results.</li>
-            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Produced evidence aligned with FedRAMP HIGH / NIST 800-53 / SOC 3 controls for compliance and audit readiness.</li>
-            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Managed the Vulnerability Disclosure Program (VDP) — validating, reproducing, and coordinating fixes with product teams.</li>
-            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Built Python/PowerShell automation for recon and reporting, cutting manual test execution time by ~35%.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Led <span class="text-bright">18+ consecutive monthly pentests</span> across enterprise web, API, and LLM-powered platforms — validating <span class="text-bright">100+ vulnerabilities (CVSS 6.0+)</span> with 80%+ remediation inside two sprints.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Ran 6+ network, Active Directory, and domain pentests with BloodHound, Impacket, and Mimikatz — exposing misconfigurations, lateral-movement paths, and privilege-escalation vectors.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Assessed 3+ Azure / Entra ID environments, pinpointing <span class="text-bright">15+ RBAC misconfigurations</span>, excessive permissions, and insecure service principals via ROADtools and Azure CLI.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Built custom AI-assisted pentest tooling on <span class="text-bright">Claude</span>, wiring Burp Suite in over <span class="text-bright">MCP</span> — cutting vulnerability-validation time by ~40% during live assessments.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Ran LLM security testing across 5+ AI features (prompt injection, jailbreak, broken access control) and led 3+ red-team engagements emulating APT adversaries, surfacing 10+ SIEM/EDR detection gaps.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Embedded DevSecOps — secret scanning (TruffleHog, Gitleaks), image scanning (Trivy), and SAST (SonarQube) — flagging 20+ hardcoded secrets and vulnerable dependencies.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Managed the CISA-aligned VDP (30+ submissions triaged), produced FedRAMP HIGH / NIST 800-53 / SOC 2 evidence, and published 12+ monthly internal security newsletters to 50+ staff.</li>
           </ul>
           <div class="mt-5 flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">FedRAMP</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">FedRAMP HIGH</span>
             <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">Azure / Entra ID</span>
             <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">Active Directory</span>
             <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">Red Team</span>
             <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">LLM Security</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">DevSecOps</span>
           </div>
         </div>
       </div>
@@ -664,22 +692,25 @@
       <div class="relative reveal">
         <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-border border-2 border-bg"></div>
         <div class="bg-card border border-border p-6 sm:p-8 card-lift ml-4">
-          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-2">
             <div>
               <h3 class="font-display font-700 text-bright text-lg">VAPT Intern</h3>
               <p class="font-mono text-accent text-sm mt-0.5">Cyber Sapiens Pvt. Ltd.</p>
             </div>
             <span class="font-mono text-xs text-muted bg-surface border border-border px-3 py-1 self-start whitespace-nowrap">May 2024 – Dec 2024</span>
           </div>
+          <p class="font-mono text-xs text-muted/70 italic mb-4">Cybersecurity consulting firm specializing in VAPT and compliance services.</p>
           <ul class="space-y-2.5 font-mono text-xs text-text leading-relaxed">
-            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Delivered security assessments on 6 client engagements across web, network, and mobile applications.</li>
-            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Identified OWASP Top 10 vulnerabilities and prepared detailed reports with remediation recommendations.</li>
-            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Implemented data protection measures in client apps, reducing sensitive data exposure.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Delivered <span class="text-bright">8 client-facing assessments</span> across web, network, and mobile apps using Burp Suite, ZAP, Nmap, Nessus, MobSF, and Frida.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Found OWASP Top 10 issues — SQLi, XSS, IDOR, SSRF, and broken access control — with risk-rated remediation guidance for clients.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Tested 3+ mobile apps (MobSF, Frida): insecure data storage, hardcoded credentials, and certificate-pinning bypasses.</li>
+            <li class="flex gap-2"><span class="text-accent mt-0.5 shrink-0">→</span>Authored 8+ detailed pentest reports with CVSS ratings, proof-of-concept evidence, and remediation for client stakeholders.</li>
           </ul>
           <div class="mt-5 flex flex-wrap gap-2">
             <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">Burp Suite</span>
             <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">MobSF</span>
             <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">Nessus</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">Mobile</span>
             <span class="px-2.5 py-1 text-xs font-mono bg-surface border border-border text-muted rounded-sm">OWASP Top 10</span>
           </div>
         </div>
@@ -690,16 +721,120 @@
 </section>
 
 <!-- ══════════════════════════════════════════
-     CERTIFICATIONS
+     SELECTED WORK  (projects / writeups)
+══════════════════════════════════════════ -->
+<section id="work" class="py-24 border-t border-border">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="font-mono text-accent text-xs mb-3 tracking-widest uppercase reveal">// 04. selected work</p>
+    <h2 class="font-display font-700 text-bright text-3xl sm:text-4xl mb-3 reveal">Projects &amp; Research</h2>
+    <p class="font-mono text-text text-sm max-w-lg mb-12 reveal opacity-80">
+      Open-source tooling, methodology, and exploit research — everything below is on GitHub.
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+
+      <!-- LLM Pentest Methodology -->
+      <a href="https://github.com/C1ph3rs3c/llm-pentest-methodology" target="_blank" rel="noopener"
+         class="bg-card border border-border p-6 card-lift reveal flex flex-col group">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-0.5 rounded-sm">Methodology</span>
+          <span class="font-mono text-xs text-muted group-hover:text-accent transition-colors">GitHub ↗</span>
+        </div>
+        <h3 class="font-display font-700 text-bright text-base mb-2">LLM Pentest Methodology</h3>
+        <p class="font-mono text-xs text-text leading-relaxed opacity-80 mb-4 flex-1">
+          A first-principles pentest methodology for LLM-powered apps — an operator field
+          manual, offline vulnerable labs, a tested Python toolkit, and an AI SecOps /
+          DevSecOps defensive playbook. Built as a WSTG-style reference for AI security.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">LLM Security</span>
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">Python</span>
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">Prompt Injection</span>
+        </div>
+      </a>
+
+      <!-- Azure Pentest Cheatsheet -->
+      <a href="https://github.com/C1ph3rs3c/Azure-Pentest-CheatSheet" target="_blank" rel="noopener"
+         class="bg-card border border-border p-6 card-lift reveal flex flex-col group">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-0.5 rounded-sm">Reference</span>
+          <span class="font-mono text-xs text-muted group-hover:text-accent transition-colors">GitHub ↗</span>
+        </div>
+        <h3 class="font-display font-700 text-bright text-base mb-2">Azure Pentest Cheatsheet</h3>
+        <p class="font-mono text-xs text-text leading-relaxed opacity-80 mb-4 flex-1">
+          A field reference for Azure &amp; Entra ID penetration testing — enumeration,
+          privilege escalation, RBAC abuse, storage misconfiguration, and compute
+          exploitation across Azure AD / Entra ID, built from real assessments.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">Azure</span>
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">Entra ID</span>
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">Cloud</span>
+        </div>
+      </a>
+
+      <!-- JWT-Scripts -->
+      <a href="https://github.com/C1ph3rs3c/JWT-Scripts" target="_blank" rel="noopener"
+         class="bg-card border border-border p-6 card-lift reveal flex flex-col group">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-0.5 rounded-sm">Tooling</span>
+          <span class="font-mono text-xs text-muted group-hover:text-accent transition-colors">GitHub ↗</span>
+        </div>
+        <h3 class="font-display font-700 text-bright text-base mb-2">JWT-Scripts</h3>
+        <p class="font-mono text-xs text-text leading-relaxed opacity-80 mb-4 flex-1">
+          A Python toolkit for automated JWT attacks — algorithm-confusion
+          (none / RS256→HS256), token tampering, and weak-secret brute forcing for web
+          application assessments.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">Python</span>
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">JWT</span>
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">API Security</span>
+        </div>
+      </a>
+
+      <!-- CVE-2024-32002 PoC -->
+      <a href="https://github.com/C1ph3rs3c/git_rce" target="_blank" rel="noopener"
+         class="bg-card border border-border p-6 card-lift reveal flex flex-col group">
+        <div class="flex items-center justify-between mb-3">
+          <span class="font-mono text-xs text-accent2 bg-accent2/10 px-2 py-0.5 rounded-sm">Exploit Research</span>
+          <span class="font-mono text-xs text-muted group-hover:text-accent transition-colors">GitHub ↗</span>
+        </div>
+        <h3 class="font-display font-700 text-bright text-base mb-2">CVE-2024-32002 — Git RCE PoC</h3>
+        <p class="font-mono text-xs text-text leading-relaxed opacity-80 mb-4 flex-1">
+          A proof-of-concept for CVE-2024-32002: remote code execution via a recursive
+          <span class="text-bright">git clone</span> abusing submodules and case-insensitive
+          filesystems to write into <span class="text-bright">.git/hooks</span>.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">Exploit Dev</span>
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">CVE</span>
+          <span class="px-2 py-0.5 text-xs font-mono border border-border text-muted rounded-sm">RCE</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="mt-8 reveal">
+      <a href="https://github.com/C1ph3rs3c?tab=repositories" target="_blank" rel="noopener"
+         class="font-mono text-sm text-muted hover:text-accent transition-colors">
+        → see all repositories on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     CERTIFICATIONS & EDUCATION
 ══════════════════════════════════════════ -->
 <section id="certs" class="py-24 border-t border-border">
   <div class="max-w-6xl mx-auto px-6">
-    <p class="font-mono text-accent text-xs mb-3 tracking-widest uppercase reveal">// 04. certifications</p>
+    <p class="font-mono text-accent text-xs mb-3 tracking-widest uppercase reveal">// 05. certifications &amp; education</p>
     <h2 class="font-display font-700 text-bright text-3xl sm:text-4xl mb-12 reveal">Credentials</h2>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
-      <!-- Active certs -->
+      <!-- eCPPT -->
       <div class="bg-card border border-accent/20 p-5 card-lift reveal">
         <div class="flex items-start justify-between mb-3">
           <div class="w-8 h-8 rounded-sm bg-accent/10 flex items-center justify-center">
@@ -711,17 +846,7 @@
         <p class="font-mono text-xs text-accent/60 mt-2">February 2024</p>
       </div>
 
-      <div class="bg-card border border-accent/20 p-5 card-lift reveal">
-        <div class="flex items-start justify-between mb-3">
-          <div class="w-8 h-8 rounded-sm bg-accent/10 flex items-center justify-center">
-            <span class="text-accent text-xs font-mono font-700">eJPT</span>
-          </div>
-          <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-0.5 rounded-sm">Active</span>
-        </div>
-        <h3 class="font-display font-600 text-bright text-sm">eJPTv2 — eLearnSecurity Junior Penetration Tester</h3>
-        <p class="font-mono text-xs text-accent/60 mt-2">September 2023</p>
-      </div>
-
+      <!-- MCRTA -->
       <div class="bg-card border border-accent/20 p-5 card-lift reveal">
         <div class="flex items-start justify-between mb-3">
           <div class="w-8 h-8 rounded-sm bg-accent/10 flex items-center justify-center">
@@ -733,6 +858,7 @@
         <p class="font-mono text-xs text-accent/60 mt-2">April 2026</p>
       </div>
 
+      <!-- HTB Zephyr -->
       <div class="bg-card border border-accent/20 p-5 card-lift reveal">
         <div class="flex items-start justify-between mb-3">
           <div class="w-8 h-8 rounded-sm bg-accent/10 flex items-center justify-center">
@@ -740,10 +866,35 @@
           </div>
           <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-0.5 rounded-sm">Active</span>
         </div>
-        <h3 class="font-display font-600 text-bright text-sm">Zephyr — HackTheBox Pro Lab</h3>
+        <h3 class="font-display font-600 text-bright text-sm">Zephyr — Hack The Box Pro Lab</h3>
         <p class="font-mono text-xs text-accent/60 mt-2">February 2026</p>
       </div>
 
+      <!-- eJPT -->
+      <div class="bg-card border border-accent/20 p-5 card-lift reveal">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-8 h-8 rounded-sm bg-accent/10 flex items-center justify-center">
+            <span class="text-accent text-xs font-mono font-700">eJPT</span>
+          </div>
+          <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-0.5 rounded-sm">Active</span>
+        </div>
+        <h3 class="font-display font-600 text-bright text-sm">eJPTv2 — eLearnSecurity Junior Penetration Tester</h3>
+        <p class="font-mono text-xs text-accent/60 mt-2">September 2023</p>
+      </div>
+
+      <!-- Google Cybersecurity -->
+      <div class="bg-card border border-accent/20 p-5 card-lift reveal">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-8 h-8 rounded-sm bg-accent/10 flex items-center justify-center">
+            <span class="text-accent text-xs font-mono font-700">GCC</span>
+          </div>
+          <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-0.5 rounded-sm">Active</span>
+        </div>
+        <h3 class="font-display font-600 text-bright text-sm">Google Cybersecurity Professional Certificate</h3>
+        <p class="font-mono text-xs text-accent/60 mt-2">March 2024</p>
+      </div>
+
+      <!-- CNSP -->
       <div class="bg-card border border-accent/20 p-5 card-lift reveal">
         <div class="flex items-start justify-between mb-3">
           <div class="w-8 h-8 rounded-sm bg-accent/10 flex items-center justify-center">
@@ -755,6 +906,7 @@
         <p class="font-mono text-xs text-accent/60 mt-2">October 2023</p>
       </div>
 
+      <!-- PentesterLab -->
       <div class="bg-card border border-accent/20 p-5 card-lift reveal">
         <div class="flex items-start justify-between mb-3">
           <div class="w-8 h-8 rounded-sm bg-accent/10 flex items-center justify-center">
@@ -767,8 +919,20 @@
         <p class="font-mono text-xs text-accent/60 mt-2">Ongoing</p>
       </div>
 
-      <!-- In progress -->
-      <div class="bg-card border border-accent2/20 p-5 card-lift reveal sm:col-span-2 lg:col-span-1">
+      <!-- NPTEL -->
+      <div class="bg-card border border-accent/20 p-5 card-lift reveal">
+        <div class="flex items-start justify-between mb-3">
+          <div class="w-8 h-8 rounded-sm bg-accent/10 flex items-center justify-center">
+            <span class="text-accent text-xs font-mono font-700">NPTEL</span>
+          </div>
+          <span class="font-mono text-xs text-accent bg-accent/10 px-2 py-0.5 rounded-sm">Active</span>
+        </div>
+        <h3 class="font-display font-600 text-bright text-sm">Cloud Computing — NPTEL</h3>
+        <p class="font-mono text-xs text-accent/60 mt-2">2023</p>
+      </div>
+
+      <!-- CRTO — in progress -->
+      <div class="bg-card border border-accent2/20 p-5 card-lift reveal">
         <div class="flex items-start justify-between mb-3">
           <div class="w-8 h-8 rounded-sm bg-accent2/10 flex items-center justify-center">
             <span class="text-accent2 text-xs font-mono font-700">CRTO</span>
@@ -781,6 +945,31 @@
       </div>
 
     </div>
+
+    <!-- Education -->
+    <h3 class="font-display font-700 text-bright text-xl mt-14 mb-6 reveal">Education</h3>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="bg-card border border-border p-5 card-lift reveal">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h4 class="font-display font-600 text-bright text-sm">Bachelor of Computer Applications</h4>
+            <p class="font-mono text-xs text-accent mt-1">Kristu Jayanti College — Bengaluru, India</p>
+          </div>
+          <span class="font-mono text-xs text-muted whitespace-nowrap">2021 – 2024</span>
+        </div>
+        <p class="font-mono text-xs text-muted mt-3">81.53%</p>
+      </div>
+      <div class="bg-card border border-border p-5 card-lift reveal">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h4 class="font-display font-600 text-bright text-sm">Higher Secondary School</h4>
+            <p class="font-mono text-xs text-accent mt-1">D.A.V Public School — Ranchi, India</p>
+          </div>
+          <span class="font-mono text-xs text-muted whitespace-nowrap">2019 – 2021</span>
+        </div>
+        <p class="font-mono text-xs text-muted mt-3">94%</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -789,10 +978,11 @@
 ══════════════════════════════════════════ -->
 <section id="contact" class="py-24 border-t border-border">
   <div class="max-w-6xl mx-auto px-6">
-    <p class="font-mono text-accent text-xs mb-3 tracking-widest uppercase reveal">// 05. contact</p>
+    <p class="font-mono text-accent text-xs mb-3 tracking-widest uppercase reveal">// 06. contact</p>
     <h2 class="font-display font-700 text-bright text-3xl sm:text-4xl mb-4 reveal">Get In Touch</h2>
     <p class="font-mono text-text text-sm max-w-lg mb-12 reveal opacity-80">
-      Open to security consulting, red team collaborations, vulnerability research, and full-time opportunities. Reach out via email or connect on LinkedIn.
+      Open to security consulting, red-team collaborations, vulnerability research, and
+      full-time offensive-security roles. Based in Bengaluru — reach out by email or on LinkedIn.
     </p>
 
     <div class="grid sm:grid-cols-3 gap-4 reveal">
@@ -809,7 +999,7 @@
         </div>
       </a>
 
-      <a href="https://www.linkedin.com/in/saif-alam-594615239/" target="_blank"
+      <a href="https://www.linkedin.com/in/saif-alam-594615239/" target="_blank" rel="noopener"
          class="bg-card border border-border p-6 card-lift flex flex-col gap-3 group">
         <div class="w-9 h-9 border border-border flex items-center justify-center group-hover:border-accent2 transition-colors">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="text-muted group-hover:text-accent2 transition-colors">
@@ -822,7 +1012,7 @@
         </div>
       </a>
 
-      <a href="https://github.com/C1ph3rs3c" target="_blank"
+      <a href="https://github.com/C1ph3rs3c" target="_blank" rel="noopener"
          class="bg-card border border-border p-6 card-lift flex flex-col gap-3 group">
         <div class="w-9 h-9 border border-border flex items-center justify-center group-hover:border-bright transition-colors">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="text-muted group-hover:text-bright transition-colors">
@@ -845,7 +1035,7 @@
 <footer class="border-t border-border py-8">
   <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
     <p class="font-mono text-xs text-muted">
-      <span class="text-accent">saif</span>alam — security researcher
+      <span class="text-accent">saif</span>alam — offensive security analyst · Bengaluru
     </p>
     <p class="font-mono text-xs text-muted/50">
       built with HTML · Tailwind CSS · GitHub Pages
@@ -857,30 +1047,6 @@
      SCRIPTS
 ══════════════════════════════════════════ -->
 <script>
-  // --- Typed role text ---
-  const roles = [
-    'AppSec Researcher',
-    'Red Team Operator',
-    'Cloud Penetration Tester',
-    'AI Security Researcher',
-    'Offensive Security Engineer',
-  ];
-  let ri = 0, ci = 0, deleting = false;
-  const el = document.getElementById('typed-role');
-
-  function typeLoop() {
-    const word = roles[ri];
-    if (!deleting) {
-      el.textContent = word.slice(0, ++ci);
-      if (ci === word.length) { deleting = true; setTimeout(typeLoop, 1800); return; }
-    } else {
-      el.textContent = word.slice(0, --ci);
-      if (ci === 0) { deleting = false; ri = (ri + 1) % roles.length; }
-    }
-    setTimeout(typeLoop, deleting ? 40 : 70);
-  }
-  typeLoop();
-
   // --- Scroll reveal ---
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -895,7 +1061,7 @@
   revealEls.forEach(el => observer.observe(el));
 
   // --- Mobile nav ---
-  const hamBtn  = document.getElementById('ham-btn');
+  const hamBtn = document.getElementById('ham-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   hamBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
   document.querySelectorAll('.mobile-nav').forEach(a => {
